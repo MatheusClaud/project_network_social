@@ -40,6 +40,7 @@ void make_user()
 
       users_storage[last_user+1].name = name;
       users_storage[last_user+1].random_thing = random;
+      last_user++;
 
     }
     else{
