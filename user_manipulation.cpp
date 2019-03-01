@@ -18,8 +18,9 @@ struct user{
 bool goback = true;
 
 // users storage / capacity: 50 users
-user users_storage[49];
-int last_user = -1; // last user space used / -1: empty
+vector <user> users_storage;
+int last_user = 0;
+
 
 // user functions ------------------------------------------------------------
 
@@ -38,6 +39,7 @@ void make_user()
       cout << "tell some letter" << endl;
       cin >> random;
 
+      users_storage.push_back(user());
       users_storage[last_user+1].name = name;
       users_storage[last_user+1].random_thing = random;
       last_user++;
@@ -48,8 +50,28 @@ void make_user()
     }
 }
 
-// make a friendship
+// delete user
+void delete_user()
+{
+    cout << endl;
 
+    int id;
+    cout << "write id to delete user" << endl;
+    cin >> id;
+
+    if (id > last_user)
+    {
+      cout << "user not found" << endl;
+    }
+    else
+    {
+      users_storage.erase(users_storage.begin()+id);
+      last_user--;
+    }
+}
+
+
+// make a friendship
 void make_friends()
 {
   cout << endl;
@@ -79,28 +101,57 @@ void make_friends()
   }
 }
 
+// shoe menu for users manippulation
+void show_user_menu()
+{
+    // show user menu
+    cout << endl;
+    cout << "1 - edit user data" << endl;
+    cout << "2 - delete user" << endl;
+    cout << "3 - show information" << endl;
+    cout << "4 - show user spider web" << endl;
+    cout << "5 - list users" << endl;
+    cout << "6 - back" << endl;
+
+    // redirect
+    int option;
+    cin >> option;
+
+    // redirect to next step
+    if (option == 1)
+    {
+      edit_user_information();
+    }
+    else if (option == 2)
+    {
+      delete_user();
+    }
+    else if (option == 3)
+    {
+      show_user();
+    }
+    else if (option == 4)
+    {
+      show_spider_web();
+    }
+    else if (option == 5)
+    {
+      users_list();
+    }
+    else if (option == 6)
+    {
+      goback = false;
+    }
+
+    if (goback){
+      show_user_menu();
+    }
+
+    goback = true;
+}
+
 // main functions ------------------------------------------------------------
 
-// a function to read user option and redirect to next step
-void get_options()
-{
-  int option;
-  cin >> option;
-
-  //redirect
-  if (option == 1)
-  {
-    make_user();
-  }
-  else if (option == 2)
-  {
-    make_friends();
-  }
-  else if (option == 3)
-  {
-    show_user_menu();
-  }
-}
 
 // a function to show main menu
 void show_main_menu()
@@ -112,7 +163,22 @@ void show_main_menu()
     cout << "3 - Show user" << endl;
 
     // redirect
-    get_options();
+    int option;
+    cin >> option;
+
+    //redirect to next step
+    if (option == 1)
+    {
+      make_user();
+    }
+    else if (option == 2)
+    {
+      make_friends();
+    }
+    else if (option == 3)
+    {
+      show_user_menu();
+    }
 
     if (goback){
       show_main_menu();

@@ -1,4 +1,25 @@
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp: In function ‘void get_options()’:
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:101:5: error: ‘show_user_menu’ was not declared in this scope
-     show_user_menu();
-     ^~~~~~~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp: In function ‘void show_user_menu()’:
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:123:7: error: ‘edit_user_information’ was not declared in this scope
+       edit_user_information();
+       ^~~~~~~~~~~~~~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:131:7: error: ‘show_user’ was not declared in this scope
+       show_user();
+       ^~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:131:7: note: suggested alternative: ‘make_user’
+       show_user();
+       ^~~~~~~~~
+       make_user
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:135:7: error: ‘show_spider_web’ was not declared in this scope
+       show_spider_web();
+       ^~~~~~~~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:135:7: note: suggested alternative: ‘show_user_menu’
+       show_spider_web();
+       ^~~~~~~~~~~~~~~
+       show_user_menu
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:139:7: error: ‘users_list’ was not declared in this scope
+       users_list();
+       ^~~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:139:7: note: suggested alternative: ‘sys_errlist’
+       users_list();
+       ^~~~~~~~~~
+       sys_errlist
