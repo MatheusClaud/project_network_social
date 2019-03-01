@@ -23,6 +23,7 @@ int last_user = -1; // last user space used / -1: empty
 
 // user functions ------------------------------------------------------------
 
+// generete a new user
 void make_user()
 {
     cout << endl;
@@ -44,6 +45,37 @@ void make_user()
     else{
       cout << "user-storage-error-overflow";
     }
+}
+
+// make a friendship
+
+void make_friends()
+{
+  cout << endl;
+
+  if (last_user < 1){
+      cout << "missing users";
+  }
+  else
+  {
+      cout << "write user 1 id" << endl;
+      int x;
+      cin >> x;
+      cout << "write user 2 id" << endl;
+      int y;
+      cin >> y;
+
+      if (x > last_user or y > last_user)
+      {
+        cout << "user not found" << endl;
+      }
+      else
+      {
+        users_storage[x].friendsId.push_back(y);
+        users_storage[y].friendsId.push_back(x);
+        cout << "friendship made" << endl;
+      }
+  }
 }
 
 // main functions ------------------------------------------------------------
