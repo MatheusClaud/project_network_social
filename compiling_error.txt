@@ -1,25 +1,11 @@
 /home/matheus/C++/atom/project_network_social/user_manipulation.cpp: In function ‘void show_user_menu()’:
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:123:7: error: ‘edit_user_information’ was not declared in this scope
- }
-       ^                    
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:131:7: error: ‘show_user’ was not declared in this scope
-     cout << "2 - delete user" << endl;
-       ^~~~~~~~~
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:131:7: note: suggested alternative: ‘make_user’
-     cout << "2 - delete user" << endl;
-       ^~~~~~~~~
-       make_user
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:135:7: error: ‘show_spider_web’ was not declared in this scope
-     cout << "6 - back" << endl;
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:160:7: error: ‘edit_user_information’ was not declared in this scope
+       edit_user_information();
+       ^~~~~~~~~~~~~~~~~~~~~
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:172:7: error: ‘show_spider_web’ was not declared in this scope
+       show_spider_web();
        ^~~~~~~~~~~~~~~
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:135:7: note: suggested alternative: ‘show_user_menu’
-     cout << "6 - back" << endl;
+/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:172:7: note: suggested alternative: ‘show_user_menu’
+       show_spider_web();
        ^~~~~~~~~~~~~~~
        show_user_menu
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:139:7: error: ‘users_list’ was not declared in this scope
-     cin >> option;
-       ^~~~~~~~~~
-/home/matheus/C++/atom/project_network_social/user_manipulation.cpp:139:7: note: suggested alternative: ‘sys_errlist’
-     cin >> option;
-       ^~~~~~~~~~
-       sys_errlist

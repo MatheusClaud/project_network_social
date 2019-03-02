@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// databank area
+// databank area -------------------------------------------------------------
 
 // user model
 struct user{
@@ -98,28 +98,44 @@ void make_friends()
         users_storage[y].friendsId.push_back(x);
         cout << "friendship made" << endl;
       }
-  }(
+  }
 }
 
 // show user information
 void show_user()
 {
-  cout << endl;
-
-  int id;
-  cout << "write the user id" << endl;
-  cin >> id;
-
-  if (id > last_user)
-  {
-    cout << "user not found" << endl;
-  }
-  else
-  {
     cout << endl;
-    cout << "name: "<< users_storage[id].name << endl;;
-    cout << "random: " << users_storage[id].random_thing << endl;
-  }
+
+    int id;
+    cout << "write the user id" << endl;
+    cin >> id;
+
+    if (id > last_user)
+    {
+      cout << "user not found" << endl;
+    }
+    else
+    {
+      cout << endl;
+      cout << "name: "<< users_storage[id].name << endl;;
+      cout << "random: " << users_storage[id].random_thing << endl;
+    }
+}
+
+// show all users registered
+void users_list()
+{
+    cout << endl;
+    if (last_user == -1){
+      cout << "users not found";
+    }
+    else
+    {
+      for (int i = 0; i <= last_user; i++)
+      {
+        cout << users_storage[i].name << endl;
+      }
+    }
 }
 
 // shoe menu for users manippulation
