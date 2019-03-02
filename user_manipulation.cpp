@@ -98,6 +98,27 @@ void make_friends()
         users_storage[y].friendsId.push_back(x);
         cout << "friendship made" << endl;
       }
+  }(
+}
+
+// show user information
+void show_user()
+{
+  cout << endl;
+
+  int id;
+  cout << "write the user id" << endl;
+  cin >> id;
+
+  if (id > last_user)
+  {
+    cout << "user not found" << endl;
+  }
+  else
+  {
+    cout << endl;
+    cout << "name: "<< users_storage[id].name << endl;;
+    cout << "random: " << users_storage[id].random_thing << endl;
   }
 }
 
