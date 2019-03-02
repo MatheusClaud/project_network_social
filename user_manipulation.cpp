@@ -2,6 +2,7 @@
 
 # include <iostream>
 # include <vector>
+# include <map>
 
 using namespace std;
 
@@ -17,9 +18,29 @@ struct user{
 // processament area
 bool goback = true;
 
+map <int, int> conexa;
+vector <int> component;
+
 // users storage / capacity: 50 users
 vector <user> users_storage;
-int last_user = 0;
+int last_user = -1;
+
+// utility functions ---------------------------------------------------------
+
+void dfs(int x)
+{
+    for (unsigned i = 0; i < users_storage[x].friendsId.size(); i++)
+    {
+      int v = users_storage[x].friendsId[i];
+
+      if (conexa.find(v)->second == 0)
+      {
+        conexa[v] = 1;
+        component.push_back(v);
+        dfs(v);
+      }
+    }
+}
 
 
 // user functions ------------------------------------------------------------
@@ -131,14 +152,78 @@ void users_list()
     }
     else
     {
-      for (int i = 0; i <= last_user; i++)
+      for (unsigned i = 0; i <= last_user; i++)
       {
         cout << users_storage[i].name << endl;
       }
     }
 }
 
-// shoe menu for users manippulation
+// edit user information
+void edit_user_information()
+{
+    cout << endl;
+
+    cout << "write the id from user" << endl;
+    int id;
+    cin >> id;
+
+    cout << endl << "whose information do you wanna edit?" << endl;
+    cout << "1 - name" << endl;
+    cout << "2 - random" << endl;
+
+    int option;
+    cin >> option;
+
+    if (option == 1)
+    {
+      char word;
+      cout << endl << "tell new name" << endl;
+      cin >> word;
+      users_storage[id].name = word;
+      cout << "name sucessful change" << endl;
+    }
+    else if (option == 2)
+    {
+      char word;
+      cout << endl << "tell new random" << endl;
+      cin >> word;
+      users_storage[id].random_thing = word;
+      cout << "random sucessful change" << endl;
+    }
+}
+
+// show spider web
+void spider_web()
+{
+  cout << endl;
+
+  cout << "write user id" << endl;
+  int id;
+  cin >> id;
+
+  if (id > last_user)
+  {
+    cout << "user not found" << endl;
+  }
+  else
+  {
+    conexa[id] = 1;
+    component.push_back(id);
+    dfs(id);
+
+    cout << endl;
+    for(unsigned i = 0; i < component.size(); i++)
+    {
+      cout << users_storage[i].name << endl;
+    }
+    conexa.clear();
+    component.clear();
+  }
+}
+
+
+// show menu for users manippulation
 void show_user_menu()
 {
     // show user menu
@@ -169,7 +254,7 @@ void show_user_menu()
     }
     else if (option == 4)
     {
-      show_spider_web();
+      spider_web();
     }
     else if (option == 5)
     {
